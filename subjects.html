@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Subjects — Ariella's Tutoring Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <nav>
+        <div class="brand">
+          <span class="brand-mark">AT</span>
+          Ariella's tutoring service
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="subjects.html">Subjects</a>
+          <a href="prices.html">Prices</a>
+          <a href="book.html">Book</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+
+      <section class="section">
+        <h1>Subjects</h1>
+        <div class="list">
+          <div class="subject-item">
+            <button class="subject-toggle" type="button" aria-expanded="false">
+              Math
+            </button>
+            <p class="subject-description" hidden>
+              Algebra, geometry, functions, and exam prep with step-by-step explanations.
+            </p>
+          </div>
+          <div class="subject-item">
+            <button class="subject-toggle" type="button" aria-expanded="false">
+              Science
+            </button>
+            <p class="subject-description" hidden>
+              Core science concepts, lab reports, and study strategies tailored to your level.
+            </p>
+          </div>
+          <div class="subject-item">
+            <button class="subject-toggle" type="button" aria-expanded="false">
+              Chemistry
+            </button>
+            <p class="subject-description" hidden>
+              Reactions, stoichiometry, and molecular structure made simple and practical.
+            </p>
+          </div>
+          <div class="subject-item">
+            <button class="subject-toggle" type="button" aria-expanded="false">
+              Physics
+            </button>
+            <p class="subject-description" hidden>
+              Mechanics, energy, and problem-solving methods to build confidence in calculations.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script>
+      document.querySelectorAll(".subject-item").forEach((item) => {
+        const button = item.querySelector(".subject-toggle");
+        const description = item.querySelector(".subject-description");
+
+        button.addEventListener("click", () => {
+          const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+          document.querySelectorAll(".subject-item").forEach((otherItem) => {
+            const otherButton = otherItem.querySelector(".subject-toggle");
+            const otherDescription = otherItem.querySelector(".subject-description");
+
+            otherButton.setAttribute("aria-expanded", "false");
+            otherDescription.hidden = true;
+          });
+
+          if (!isExpanded) {
+            button.setAttribute("aria-expanded", "true");
+            description.hidden = false;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
